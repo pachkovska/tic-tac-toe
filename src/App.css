@@ -37,6 +37,12 @@ button {
   background-color: #b1bed5;
 }
 
+button:hover {
+  border: 1px solid whitesmoke;
+  transform: translateY(1px);
+  background-color: #d0d8e5;
+}
+
 .restart-btn {
   margin-bottom: 20px;
 }
