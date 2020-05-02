@@ -8,9 +8,34 @@
 
 .cell {
   display: inline-block;
-  width: 5rem;
-  height: 5rem;
+  width: 7rem;
+  height: 7rem;
   margin: .25rem;
   background-color: #f5f5f5;
   border: 1px solid floralwhite;
+  font-size: 91px;
+}
+
+.gameContainer {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  width: 300px;
+  height: 30px;
+  border-radius: 5px;
+  font-size: 20px;
+  margin-left: 10px;
+  background-color: #b1bed5;
+}
+
+.restart-btn {
+  margin-bottom: 20px;
+}
+
+input {
+  width: 300px;
+  height: 25px;
+  font-size: 20px;
 }

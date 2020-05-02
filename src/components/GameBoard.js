@@ -10,17 +10,19 @@ function GameBoard(props) {
     }
 
     return (
-        <div className="gameBoard">
-            {
-                props.field.map((row, rowIndex) => (
-                    <div className={"row"}>
-                        {row.map((cell, cellIndex) => (
-                            <div className={"cell"} onClick={() => makeMove(rowIndex, cellIndex)}>{cell}</div>
-                        ))
-                        }
-                    </div>
-                ))
-            }
+        <div className={"gameContainer"}>
+            <div className="gameBoard">
+                {   props.player1 && props.player2 &&
+                    props.field.map((row, rowIndex) => (
+                        <div className={"row"}>
+                            {row.map((cell, cellIndex) => (
+                                <div className={"cell"} onClick={() => makeMove(rowIndex, cellIndex)} style={{color: cell === 'X' ? "#31859c" : "#9bbb59"}}>{cell}</div>
+                            ))
+                            }
+                        </div>
+                    ))
+                }
+            </div>
         </div>
     );
 }
@@ -28,8 +30,7 @@ function GameBoard(props) {
 const mapStateToProps = state => ({
     player1: state.player1,
     player2: state.player2,
-    field: state.field,
-    currentPlayer: state.currentPlayer,
+    field: state.field
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -28,7 +28,7 @@ const reducer = (state = initialState, action) => {
                 return {
                     ...state,
                     field: [...updatedField],
-                    winner: checkWin(updatedField, 'X') ? state.player2 : null,
+                    winner: checkWin(updatedField, 'O') ? state.player2 : null,
                     currentPlayer: 1
                 };
             }
@@ -46,6 +46,17 @@ const reducer = (state = initialState, action) => {
                 }
             }
             break;
+        case 'RESTART_GAME':
+            return {
+                ...state,
+                field: [
+                    [null, null, null],
+                    [null, null, null],
+                    [null, null, null]
+                ],
+                currentPlayer: 1,
+                winner: null
+            }
         default:
             return state;
     }

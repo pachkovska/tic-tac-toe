@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../App.css';
 import { connect } from 'react-redux';
 import { saveName } from "../actions";
+import { restartGame } from "../actions";
 
 function Header(props) {
 
@@ -24,6 +25,13 @@ function Header(props) {
                         <button onClick={() => submitPlayerName(name)}>submit</button>
                     </div>
             }
+            {
+                props.winner &&
+                <div className={"gameOver"}>
+                    <h1>{props.winner} has won. Congratulations!</h1>
+                    <button className={"restart-btn"} onClick={props.restartGame}>Restart Game</button>
+                </div>
+            }
         </div>
     );
 }
@@ -31,10 +39,12 @@ function Header(props) {
 const mapStateToProps = state => ({
     player1: state.player1,
     player2: state.player2,
+    winner: state.winner
 })
 
 const mapDispatchToProps = dispatch => ({
-    saveName: (name) => dispatch(saveName(name))
+    saveName: (name) => dispatch(saveName(name)),
+    restartGame: () => dispatch(restartGame())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
