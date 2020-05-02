@@ -20,7 +20,7 @@ const reducer = (state = initialState, action) => {
                 return {
                     ...state,
                     field: [...updatedField],
-                    winner: checkWin(updatedField, 'X') ? state.player1 : null,
+                    winner: checkWin(updatedField, 'X') === 'tie' ? 'tie' : checkWin(updatedField, 'X') ? state.player1 : null,
                     currentPlayer: 2
                     }
             } else if (state.currentPlayer === 2) {
@@ -28,7 +28,7 @@ const reducer = (state = initialState, action) => {
                 return {
                     ...state,
                     field: [...updatedField],
-                    winner: checkWin(updatedField, 'O') ? state.player2 : null,
+                    winner: checkWin(updatedField, 'X') === 'tie' ? 'tie' : checkWin(updatedField, 'X') ? state.player2 : null,
                     currentPlayer: 1
                 };
             }
@@ -71,6 +71,7 @@ const checkWin = (fieldToCheck, player) => {
         if (fieldToCheck[i].every(cell => cell === player)) return true; // check rows
         if (fieldToCheck.every(row => row[i] === player)) return true; // check columns
     }
+    if (fieldToCheck.every(row => row.every(cell => cell))) return 'tie';
     return false;
 }
 

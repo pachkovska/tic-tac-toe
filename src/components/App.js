@@ -6,8 +6,10 @@ import GameBoard from "./GameBoard";
 function App() {
   return (
     <div className="App">
-      <Header />
-      <GameBoard />
+        <div className={"app-container"}>
+            <Header />
+            <GameBoard />
+        </div>
     </div>
   );
 }

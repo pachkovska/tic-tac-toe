@@ -18,7 +18,7 @@ function Header(props) {
             <h2>Welcome to the coolest Tic-Tac-Toe ever.</h2>
             {
                 props.player1 !== '' && props.player2 !== ''
-                    ? <h3>{props.player1} and {props.player2} enjoy the game!</h3>
+                    ? props.winner === null && <h3>{props.player1} and {props.player2} enjoy the game!</h3>
                     : <div>
                         <h3>Please enter name of the {props.player1 === '' ? 'first' : 'second'} player {props.player1 && 'to get started'}</h3>
                         <input type={"text"} value={name} onChange={e => setName(e.target.value)} placeholder={"Player's name"}/>
@@ -26,9 +26,13 @@ function Header(props) {
                     </div>
             }
             {
-                props.winner &&
+                props.winner  &&
                 <div className={"gameOver"}>
-                    <h1>{props.winner} has won. Congratulations!</h1>
+                    {
+                        props.winner === 'tie'
+                            ? <h1> It's a tie! </h1>
+                            : <h1>{props.winner} has won. Congratulations!</h1>
+                    }
                     <button className={"restart-btn"} onClick={props.restartGame}>Restart Game</button>
                 </div>
             }
