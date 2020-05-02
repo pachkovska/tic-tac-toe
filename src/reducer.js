@@ -28,7 +28,7 @@ const reducer = (state = initialState, action) => {
                 return {
                     ...state,
                     field: [...updatedField],
-                    winner: checkWin(updatedField, 'X') === 'tie' ? 'tie' : checkWin(updatedField, 'X') ? state.player2 : null,
+                    winner: checkWin(updatedField, 'O') === 'tie' ? 'tie' : checkWin(updatedField, 'O') ? state.player2 : null,
                     currentPlayer: 1
                 };
             }
