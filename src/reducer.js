@@ -1,6 +1,8 @@
 const initialState = {
     player1: '',
     player2: '',
+    player1Icon: '',
+    player2Icon: '',
     field: [
         [null, null, null],
         [null, null, null],
@@ -15,7 +17,7 @@ const reducer = (state = initialState, action) => {
     switch (action.type) {
         case 'MOVE':
             const updatedField = [...state.field];
-            if (state.currentPlayer === 1) {
+            if (state.currentPlayer === 1 && updatedField[action.payload.rowIndex][action.payload.cellIndex] !== null) {
                 updatedField[action.payload.rowIndex][action.payload.cellIndex] = 'X';
                 return {
                     ...state,
@@ -23,7 +25,7 @@ const reducer = (state = initialState, action) => {
                     winner: checkWin(updatedField, 'X') === 'tie' ? 'tie' : checkWin(updatedField, 'X') ? state.player1 : null,
                     currentPlayer: 2
                     }
-            } else if (state.currentPlayer === 2) {
+            } else if (state.currentPlayer === 2 && updatedField[action.payload.rowIndex][action.payload.cellIndex] !== null) {
                 updatedField[action.payload.rowIndex][action.payload.cellIndex] = 'O';
                 return {
                     ...state,

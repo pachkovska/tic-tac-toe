@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import '../App.css';
 import { connect } from 'react-redux';
 import { saveName } from "../actions";
 import { restartGame } from "../actions";
+import EmojiModal from "./EmojiModal";
 
 function Header(props) {
 
@@ -22,7 +22,8 @@ function Header(props) {
                     : <div>
                         <h3>Please enter name of the {props.player1 === '' ? 'first' : 'second'} player {props.player1 && 'to get started'}</h3>
                         <input type={"text"} value={name} onChange={e => setName(e.target.value)} placeholder={"Player's name"}/>
-                        <button onClick={() => submitPlayerName(name)}>submit</button>
+                        <button className={"submitName-btn"} onClick={() => submitPlayerName(name)}>submit</button>
+                        <EmojiModal />
                     </div>
             }
             {

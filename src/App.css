@@ -28,7 +28,7 @@ body {
   margin-bottom: 20px;
 }
 
-button {
+.submitName-btn, .restart-btn {
   width: 300px;
   height: 30px;
   border-radius: 5px;
@@ -37,7 +37,7 @@ button {
   background-color: #b1bed5;
 }
 
-button:hover {
+.submitName-btn:hover, .restart-btn:hover {
   border: 1px solid whitesmoke;
   transform: translateY(1px);
   background-color: #d0d8e5;
@@ -61,4 +61,17 @@ input {
   margin: 5%;
   background-color: white;
   min-height: 70vh;
+}
+
+.emoji-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px 10px 10px 17px;
+}
+
+.emoji-list > * {
+  border: lightgray solid 1px;
+  border-radius: 4px;
+  margin: 9px;
+  padding: 7px;
 }
