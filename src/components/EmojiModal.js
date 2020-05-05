@@ -1,22 +1,30 @@
-import React, { useState } from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 function EmojiModal (props) {
     const {
-        className
+        className,
+        nameSaved,
+        setNameSaved,
     } = props;
 
     const [emojiModal, setEmojiModal] = useState(false);
-    const [task, setTask] = useState({});
 
     const toggleModal = () => {
         setEmojiModal(!emojiModal);
     }
 
+    useEffect(() => {
+        if (nameSaved) {
+            toggleModal();
+            setNameSaved(false);
+        }
+    }, [nameSaved, setNameSaved, toggleModal])
+
     return (
         <div>
-            {/*<div className={"createNewTaskButton"} onClick={toggleModal}><i className="fa fa-plus fa-lg create-icon"></i>Create Task</div>*/}
-            <Modal isOpen={emojiModal} modalTransition={{ timeout: 700 }} backdropTransition={{ timeout: 1300 }}
+
+            <Modal isOpen={emojiModal} modalTransition={{ timeout: 200 }} backdropTransition={{ timeout: 500 }}
                    toggle={toggleModal} className={className}>
                  <ModalHeader toggle={toggleModal}>Select your player's icon</ModalHeader>
                 <ModalBody>

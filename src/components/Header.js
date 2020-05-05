@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useState} from 'react';
 import { connect } from 'react-redux';
 import { saveName } from "../actions";
 import { restartGame } from "../actions";
@@ -7,13 +7,13 @@ import EmojiModal from "./EmojiModal";
 function Header(props) {
 
     const [name, setName] = useState('');
+    const [nameSaved, setNameSaved] = useState(false);
 
     const submitPlayerName = (name) => {
         props.saveName(name)
+        setNameSaved(true);
         setName('');
     }
-
-    useEffect(() => {}, [])
 
     return (
         <div className="header">
@@ -27,7 +27,10 @@ function Header(props) {
                         <button className={"submitName-btn"} onClick={() => submitPlayerName(name)}>submit</button>
                     </div>
             }
-            <EmojiModal />
+            <EmojiModal
+                nameSaved={nameSaved}
+                setNameSaved={setNameSaved}
+            />
             {
                 props.winner  &&
                 <div className={"gameOver"}>
