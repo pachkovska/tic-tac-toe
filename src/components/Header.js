@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { connect } from 'react-redux';
 import { saveName } from "../actions";
 import { restartGame } from "../actions";
@@ -13,19 +13,21 @@ function Header(props) {
         setName('');
     }
 
+    useEffect(() => {}, [])
+
     return (
         <div className="header">
             <h2>Welcome to the coolest Tic-Tac-Toe ever.</h2>
             {
                 props.player1 !== '' && props.player2 !== ''
                     ? props.winner === null && <h3>{props.player1} and {props.player2} enjoy the game!</h3>
-                    : <div>
+                    : <div className={"nameInputs"}>
                         <h3>Please enter name of the {props.player1 === '' ? 'first' : 'second'} player {props.player1 && 'to get started'}</h3>
-                        <input type={"text"} value={name} onChange={e => setName(e.target.value)} placeholder={"Player's name"}/>
+                        <input className={"inputField"} type={"text"} value={name} onChange={e => setName(e.target.value)} placeholder={"Player's name"}/>
                         <button className={"submitName-btn"} onClick={() => submitPlayerName(name)}>submit</button>
-                        <EmojiModal />
                     </div>
             }
+            <EmojiModal />
             {
                 props.winner  &&
                 <div className={"gameOver"}>
