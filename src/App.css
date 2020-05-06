@@ -1,99 +1,99 @@
 body {
-  background-color: #f5f5f5;
-  width: 100vw;
-  height: 100vh;
+    background-color: #f5f5f5;
+    width: 100vw;
+    height: 100vh;
 }
 
 .App {
-  text-align: center;
-  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
+    text-align: center;
+    font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
 }
 
 .row {
-display: flex;
+    display: flex;
 }
 
 .cell {
-display: inline-block;
-width: 7rem;
-height: 7rem;
-margin: .25rem;
-background-color: #f5f5f5;
-border: 1px solid floralwhite;
-font-size: 91px;
+    display: inline-block;
+    width: 7rem;
+    height: 7rem;
+    margin: .25rem;
+    background-color: #f5f5f5;
+    border: 1px solid floralwhite;
+    font-size: 91px;
 }
 
 .gameContainer {
-display: flex;
-justify-content: center;
-margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
 .submitName-btn, .restart-btn {
-width: 300px;
-height: 30px;
-border-radius: 5px;
-font-size: 20px;
-margin-left: 10px;
-margin-top: 10px;
-background-color: #b1bed5;
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    font-size: 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+    background-color: #b1bed5;
 }
 
 .submitName-btn:hover, .restart-btn:hover {
-border: 1px solid whitesmoke;
-transform: translateY(1px);
-background-color: #d0d8e5;
+    border: 1px solid whitesmoke;
+    transform: translateY(1px);
+    background-color: #d0d8e5;
 }
 
 .restart-btn {
-margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .inputField {
-  width: 300px;
-  height: 29px;
-  font-size: 20px;
-  justify-self: end;
-  align-self: end;
+    width: 300px;
+    height: 29px;
+    font-size: 20px;
+    justify-self: end;
+    align-self: end;
 }
 
 .app-container {
-padding: 15px;
-/*border: 1px solid rgba(115, 115, 115, 0.15);*/
-/*box-shadow: rgba(0, 0, 0) 2px 4px 8px;*/
-transition: all .3s ease-in-out;
-margin: 5%;
-background-color: white;
-min-height: 70vh;
+    padding: 15px;
+    /*border: 1px solid rgba(115, 115, 115, 0.15);*/
+    /*box-shadow: rgba(0, 0, 0) 2px 4px 8px;*/
+    transition: all .3s ease-in-out;
+    margin: 5%;
+    background-color: white;
+    min-height: 70vh;
 }
 
 .emoji-list {
-display: flex;
-flex-wrap: wrap;
-margin: 10px 10px 10px 17px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 10px 10px 17px;
 }
 
 .emoji-list > * {
-border: lightgray solid 1px;
-border-radius: 4px;
-margin: 9px;
-padding: 7px;
+    border: lightgray solid 1px;
+    border-radius: 4px;
+    margin: 9px;
+    padding: 7px;
 }
 
 .emoji-list > *:hover {
-  border: 1px solid whitesmoke;
-  transform: translateY(1px);
-  background: rgba(0, 0, 0, 0.1);
+    border: 1px solid whitesmoke;
+    transform: translateY(1px);
+    background: rgba(0, 0, 0, 0.1);
 }
 
 .nameInputs {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
 }
 
 h3 {
-  grid-column: 1 / span 2;
+    grid-column: 1 / span 2;
 }
