@@ -40,7 +40,7 @@ function EmojiModal (props) {
                         <span role={"img"} aria-label={""} onClick={() => handleEmoji('1F64E')}>&#x1F64E;</span>
                         <span role={"img"} aria-label={""} onClick={() => handleEmoji('1F441')}>&#x1F441;</span>
                         <span role={"img"} aria-label={""} onClick={() => handleEmoji('1F4A3')}>&#x1F4A3;</span>
-                        <span role={"img"} aria-label={""} onClick={() => handleEmoji('2764')}>&#x2764;</span>
+                        <span role={"img"} aria-label={""} onClick={() => handleEmoji('1F49A')}>&#x1F49A;</span>
                         <span role={"img"} aria-label={""} onClick={() => handleEmoji('1F499')}>&#x1F499;</span>
                         <span role={"img"} aria-label={""} onClick={() => handleEmoji('1F648')}>&#x1F648;</span>
                         <span role={"img"} aria-label={""} onClick={() => handleEmoji('1F638')}>&#x1F638;</span>

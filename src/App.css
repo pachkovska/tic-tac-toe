@@ -60,7 +60,7 @@ margin-bottom: 20px;
 
 .app-container {
 padding: 15px;
-border: 1px solid rgba(115, 115, 115, 0.15);
+/*border: 1px solid rgba(115, 115, 115, 0.15);*/
 /*box-shadow: rgba(0, 0, 0) 2px 4px 8px;*/
 transition: all .3s ease-in-out;
 margin: 5%;
@@ -79,6 +79,12 @@ border: lightgray solid 1px;
 border-radius: 4px;
 margin: 9px;
 padding: 7px;
+}
+
+.emoji-list > *:hover {
+  border: 1px solid whitesmoke;
+  transform: translateY(1px);
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .nameInputs {
