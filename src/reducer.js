@@ -17,7 +17,7 @@ const reducer = (state = initialState, action) => {
     switch (action.type) {
         case 'MOVE':
             const updatedField = [...state.field];
-            if (state.currentPlayer === 1 && updatedField[action.payload.rowIndex][action.payload.cellIndex] !== null) {
+            if (state.currentPlayer === 1 && updatedField[action.payload.rowIndex][action.payload.cellIndex] === null) {
                 updatedField[action.payload.rowIndex][action.payload.cellIndex] = 'X';
                 return {
                     ...state,
@@ -25,7 +25,7 @@ const reducer = (state = initialState, action) => {
                     winner: checkWin(updatedField, 'X') === 'tie' ? 'tie' : checkWin(updatedField, 'X') ? state.player1 : null,
                     currentPlayer: 2
                     }
-            } else if (state.currentPlayer === 2 && updatedField[action.payload.rowIndex][action.payload.cellIndex] !== null) {
+            } else if (state.currentPlayer === 2 && updatedField[action.payload.rowIndex][action.payload.cellIndex] === null) {
                 updatedField[action.payload.rowIndex][action.payload.cellIndex] = 'O';
                 return {
                     ...state,
@@ -45,6 +45,19 @@ const reducer = (state = initialState, action) => {
                 return {
                     ...state,
                     player2: action.payload
+                }
+            }
+            break;
+        case 'CHOOSE_EMOJI':
+            if (state.player1 && !state.player1Icon) {
+                return {
+                    ...state,
+                    player1Icon: action.payload
+                }
+            } else if (state.player2 && !state.player2Icon) {
+                return {
+                    ...state,
+                    player2Icon: action.payload
                 }
             }
             break;
