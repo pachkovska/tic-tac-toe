@@ -6,7 +6,6 @@ function GameBoard(props) {
 
     const makeMove = (rowIndex, cellIndex) => {
         props.makeMove(rowIndex, cellIndex);
-        console.log(rowIndex, cellIndex)
     }
 
     return (
@@ -33,7 +32,8 @@ const mapStateToProps = state => ({
     player2: state.player2,
     player1Icon: state.player1Icon,
     player2Icon: state.player2Icon,
-    field: state.field
+    field: state.field,
+    winCombo: state.winCombo
 });
 
 const mapDispatchToProps = dispatch => ({

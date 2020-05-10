@@ -31,7 +31,7 @@ function EmojiModal (props) {
     return (
         <div>
 
-            <Modal isOpen={emojiModal} modalTransition={{ timeout: 200 }} backdropTransition={{ timeout: 500 }}
+            <Modal size={"lg"} isOpen={emojiModal} modalTransition={{ timeout: 200 }} backdropTransition={{ timeout: 500 }}
                    toggle={toggleModal} className={className}>
                  <ModalHeader toggle={toggleModal}>Select your player's icon</ModalHeader>
                 <ModalBody>
@@ -57,6 +57,9 @@ function EmojiModal (props) {
                         <span role={"img"} aria-label={""} onClick={() => handleEmoji('1F9DC')}>&#x1F9DC;</span>
                         <span role={"img"} aria-label={""} onClick={() => handleEmoji('1F483')}>&#x1F483;</span>
                         <span role={"img"} aria-label={""} onClick={() => handleEmoji('1F46F')}>&#x1F46F;</span>
+                        <span role={"img"} aria-label={""} onClick={() => handleEmoji('1F496')}>&#x1F496;</span>
+                        <span role={"img"} aria-label={""} onClick={() => handleEmoji('1F64B')}>&#x1F64B;</span>
+                        <span role={"img"} aria-label={""} onClick={() => handleEmoji('1F9DE')}>&#x1F9DE;</span>
                     </div>
                 </ModalBody>
                 <ModalFooter>

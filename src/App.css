@@ -30,7 +30,7 @@ body {
     margin-bottom: 20px;
 }
 
-.submitName-btn, .restart-btn {
+.submitName-btn, .restart-btn, .resetAll-btn {
     width: 300px;
     height: 30px;
     border-radius: 5px;
@@ -40,7 +40,7 @@ body {
     background-color: #b1bed5;
 }
 
-.submitName-btn:hover, .restart-btn:hover {
+.submitName-btn:hover, .restart-btn:hover, .resetAll-btn:hover {
     border: 1px solid whitesmoke;
     transform: translateY(1px);
     background-color: #d0d8e5;
@@ -74,11 +74,12 @@ body {
     margin: 10px 10px 10px 17px;
 }
 
-.emoji-list > * {
+.emoji-list > span {
     border: lightgray solid 1px;
     border-radius: 4px;
     margin: 9px;
     padding: 7px;
+    font-size: 55px;
 }
 
 .emoji-list > *:hover {
@@ -96,4 +97,45 @@ body {
 
 h3 {
     grid-column: 1 / span 2;
+}
+
+.boards-container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+
+.scoreContainer {
+    display: block;
+    height: 150px;
+}
+
+.showScore {
+    background-color: #f5f5f5;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 300px;
+}
+
+.showScore > h4 {
+    margin-top: 20px;
+    grid-column: 1 / span 2;
+    grid-row: 1;
+}
+
+.showScore > div {
+    grid-column: 1 ;
+}
+
+.showScore > span {
+    grid-column: 2;
+}
+
+.resetAll-btn {
+    margin-left: 0;
+}
+
+.scoreBoard-emoji {
+    font-size: 30px;
+    margin-right: 10px;
 }
