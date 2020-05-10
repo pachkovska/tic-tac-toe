@@ -115,12 +115,14 @@ h3 {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     width: 300px;
+    /*align-items: start;*/
 }
 
 .showScore > h4 {
     margin-top: 20px;
     grid-column: 1 / span 2;
     grid-row: 1;
+    align-items: center;
 }
 
 .showScore > div {
@@ -129,6 +131,7 @@ h3 {
 
 .showScore > span {
     grid-column: 2;
+    margin-top: 16px;
 }
 
 .resetAll-btn {
