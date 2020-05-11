@@ -142,3 +142,22 @@ h3 {
     font-size: 30px;
     margin-right: 10px;
 }
+
+.win-row {
+    width: 120px;
+    height: 15px;
+    background-color: red;
+    animation: blinking ease-in-out 1.2s infinite;
+    z-index: 1000;
+    position: absolute;
+    display: inline-block;
+    margin-top: 50px;
+    margin-left: -104px;
+}
+
+@keyframes blinking{
+    0%   {background-color: red;}
+    25%  {background-color: yellow;}
+    50%  {background-color: blue;}
+    100% {background-color: green;}
+}

@@ -15,8 +15,8 @@ function GameBoard(props) {
                 props.field.map((row, rowIndex) => (
                     <div className={"row"}>
                         {row.map((cell, cellIndex) => (
-                            <div className={"cell"}
-                                 onClick={() => makeMove(rowIndex, cellIndex)}>{cell === 'X' ? String.fromCodePoint(parseInt(props.player1Icon.toString(), 16)) : cell === 'O' ? String.fromCodePoint(parseInt(props.player2Icon.toString(), 16)) : null}</div>
+                            <div className={'cell'}
+                                 onClick={() => makeMove(rowIndex, cellIndex)}>{cell === 'X' ? String.fromCodePoint(parseInt(props.player1Icon.toString(), 16)) : cell === 'O' ? String.fromCodePoint(parseInt(props.player2Icon.toString(), 16)) : null}<span className={props.winCombo.length === 3 && props.winCombo !== 'tie' &&`${winDirection(rowIndex, cellIndex, props.winCombo)}`}></span></div>
                         ))
                         }
                     </div>
@@ -25,6 +25,39 @@ function GameBoard(props) {
             </div>
         </div>
     );
+}
+
+
+const winDirection = (rowIndex, cellIndex, winCombo) => {
+    if (winCombo.length === 3 && winCombo !== 'tie') {
+        const possibleWins = {
+            row0: [[0, 0], [0, 1], [0, 2]],
+            row1: [[1, 0], [1, 1], [1, 2]],
+            row2: [[2, 0], [2, 1], [2, 2]],
+            column0 : [[0, 0], [1, 0], [2, 0]],
+            column1 : [[0, 1], [1, 1], [2, 1]],
+            column2 : [[0, 2], [1, 2], [2, 2]],
+            diagonal0 : [[0, 0], [1, 1], [2, 2]],
+            diagonal2 : [[2, 0], [1, 1], [0, 2]],
+
+        }
+        if (cellInWinCombo(rowIndex, cellIndex, winCombo) && (JSON.stringify(winCombo) === JSON.stringify(possibleWins.row0) || JSON.stringify(winCombo) === JSON.stringify(possibleWins.row1) || JSON.stringify(winCombo) === JSON.stringify(possibleWins.row2))) {
+            console.log("cell in wincombo works: ", cellInWinCombo(rowIndex, cellIndex, winCombo))
+            console.log("json.stringify comparison works: ", JSON.stringify(winCombo) === JSON.stringify(possibleWins.row0))
+            return 'win-row';
+        }
+        if (cellInWinCombo(rowIndex, cellIndex, winCombo) && (JSON.stringify(winCombo) === JSON.stringify(possibleWins.column0) || JSON.stringify(winCombo) === JSON.stringify(possibleWins.column1) || JSON.stringify(winCombo) === JSON.stringify(possibleWins.column2))) return 'win-column';
+        if (cellInWinCombo(rowIndex, cellIndex, winCombo) && JSON.stringify(winCombo) === JSON.stringify(possibleWins.diagonal0)) return 'win-diagonal-right';
+        if (cellInWinCombo(rowIndex, cellIndex, winCombo) && JSON.stringify(winCombo) === JSON.stringify(possibleWins.diagonal2)) return 'win-diagonal-left';
+    }
+    return null;
+}
+
+const cellInWinCombo = (rowIndex, cellIndex, winCombo) => {
+        for (let i = 0; i < 3; i++) {
+            if (winCombo[i][0] === rowIndex && winCombo[i][1] === cellIndex) return true;
+        }
+        return false;
 }
 
 const mapStateToProps = state => ({
