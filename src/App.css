@@ -143,21 +143,45 @@ h3 {
     margin-right: 10px;
 }
 
-.win-row {
+.win-row,
+.win-column,
+.win-diagonal-left,
+.win-diagonal-right {
     width: 120px;
-    height: 15px;
-    background-color: red;
+    height: 20px;
+    background-color: #ffaaa5;
     animation: blinking ease-in-out 1.2s infinite;
     z-index: 1000;
     position: absolute;
     display: inline-block;
-    margin-top: 50px;
-    margin-left: -104px;
+    margin-top: 48px;
+    margin-left: -105px;
+}
+
+.win-column {
+    transform: rotate(90deg);
+    width: 135px;
+    margin-left: -112px;
+}
+
+.win-diagonal-left {
+    transform: rotate(135deg);
+    width: 170px;
+    margin-left: -128px;
+}
+
+.win-diagonal-right {
+    transform: rotate(-135deg);
+    width: 170px;
+    margin-left: -129px;
+    margin-top: 45px;
 }
 
 @keyframes blinking{
-    0%   {background-color: red;}
-    25%  {background-color: yellow;}
-    50%  {background-color: blue;}
-    100% {background-color: green;}
+    0%   {background-color: #ffaaa5;}
+    20%  {background-color: #ffd3b6;}
+    40%  {background-color: #dcedc1;}
+    60% {background-color: #a8e6cf;}
+    80%  {background-color: #dcedc1;}
+    100%  {background-color: #ffd3b6;}
 }

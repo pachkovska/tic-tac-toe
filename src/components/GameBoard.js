@@ -38,7 +38,7 @@ const winDirection = (rowIndex, cellIndex, winCombo) => {
             column1 : [[0, 1], [1, 1], [2, 1]],
             column2 : [[0, 2], [1, 2], [2, 2]],
             diagonal0 : [[0, 0], [1, 1], [2, 2]],
-            diagonal2 : [[2, 0], [1, 1], [0, 2]],
+            diagonal2 : [[0, 2], [1, 1], [2, 0]],
 
         }
         if (cellInWinCombo(rowIndex, cellIndex, winCombo) && (JSON.stringify(winCombo) === JSON.stringify(possibleWins.row0) || JSON.stringify(winCombo) === JSON.stringify(possibleWins.row1) || JSON.stringify(winCombo) === JSON.stringify(possibleWins.row2))) {

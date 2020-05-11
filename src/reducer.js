@@ -79,7 +79,7 @@ const reducer = (state = initialState, action) => {
                     ],
                     currentPlayer: 1,
                     winner: null,
-                    score: {...state.score, player1: updateScore}
+                    score: {...state.score, player1: updateScore}, winCombo: []
                 }
             } else if (state.winner === state.player2) {
                 const updateScore = state.score.player2 + 1;
@@ -92,7 +92,7 @@ const reducer = (state = initialState, action) => {
                     ],
                     currentPlayer: 1,
                     winner: null,
-                    score: {...state.score, player2: updateScore}
+                    score: {...state.score, player2: updateScore}, winCombo: []
                 }
             } else {
                 return {
@@ -103,7 +103,8 @@ const reducer = (state = initialState, action) => {
                         [null, null, null]
                     ],
                     currentPlayer: 1,
-                    winner: null
+                    winner: null,
+                    winCombo: []
                 }
             }
             break;
