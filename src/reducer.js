@@ -1,8 +1,8 @@
 const initialState = {
     player1: '',
     player2: '',
-    player1Icon: '',
-    player2Icon: '',
+    player1Icon: null,
+    player2Icon: null,
     field: [
         [null, null, null],
         [null, null, null],
@@ -112,8 +112,8 @@ const reducer = (state = initialState, action) => {
             return {
                 player1: '',
                 player2: '',
-                player1Icon: '',
-                player2Icon: '',
+                player1Icon: null,
+                player2Icon: null,
                 field: [
                     [null, null, null],
                     [null, null, null],
