@@ -16,7 +16,7 @@ function GameBoard(props) {
                     <div className={"row"}>
                         {row.map((cell, cellIndex) => (
                             <div className={'cell'}
-                                 onClick={() => makeMove(rowIndex, cellIndex)}>{cell === 'X' ? String.fromCodePoint(parseInt(props.player1Icon.toString(), 16)) : cell === 'O' ? String.fromCodePoint(parseInt(props.player2Icon.toString(), 16)) : null}<span className={props.winCombo.length === 3 && props.winCombo !== 'tie' &&`${winDirection(rowIndex, cellIndex, props.winCombo)}`}></span></div>
+                                 onClick={() => makeMove(rowIndex, cellIndex)}>{cell === 'X' ? String.fromCodePoint(parseInt(props.player1Icon, 16)) : cell === 'O' ? String.fromCodePoint(parseInt(props.player2Icon, 16)) : null}<span className={props.winCombo.length === 3 && props.winCombo !== 'tie' &&`${winDirection(rowIndex, cellIndex, props.winCombo)}`}></span></div>
                         ))
                         }
                     </div>
