@@ -37,8 +37,9 @@ const reducer = (state = initialState, action) => {
                     currentPlayer: 1,
                     winCombo: checkWin(updatedField, 'O') !== 'tie' && checkWin(updatedField, 'O') ? checkWin(updatedField, 'O') : []
                 };
+            } else {
+                return state;
             }
-            break;
         case 'SAVE_NAME':
             if (!state.player1) {
                 return {
@@ -50,8 +51,9 @@ const reducer = (state = initialState, action) => {
                     ...state,
                     player2: action.payload
                 }
+            } else {
+                return state
             }
-            break;
         case 'CHOOSE_EMOJI':
             if (state.player1 && !state.player1Icon) {
                 return {
@@ -63,13 +65,12 @@ const reducer = (state = initialState, action) => {
                     ...state,
                     player2Icon: action.payload
                 }
+            } else {
+                return state;
             }
-            break;
         case 'RESTART_GAME':
             if (state.winner === state.player1) {
                 const updateScore = state.score.player1 + 1;
-                console.log(state.winner === state.player1)
-                console.log(state.player1)
                 return {
                     ...state,
                     field: [
@@ -79,7 +80,8 @@ const reducer = (state = initialState, action) => {
                     ],
                     currentPlayer: 1,
                     winner: null,
-                    score: {...state.score, player1: updateScore}, winCombo: []
+                    score: {...state.score, player1: updateScore},
+                    winCombo: []
                 }
             } else if (state.winner === state.player2) {
                 const updateScore = state.score.player2 + 1;
@@ -92,7 +94,8 @@ const reducer = (state = initialState, action) => {
                     ],
                     currentPlayer: 1,
                     winner: null,
-                    score: {...state.score, player2: updateScore}, winCombo: []
+                    score: {...state.score, player2: updateScore},
+                    winCombo: []
                 }
             } else {
                 return {
@@ -107,7 +110,6 @@ const reducer = (state = initialState, action) => {
                     winCombo: []
                 }
             }
-            break;
         case 'RESET_ALL':
             return {
                 player1: '',
