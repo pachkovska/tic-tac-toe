@@ -123,7 +123,8 @@ const reducer = (state = initialState, action) => {
                 ],
                 currentPlayer: 1,
                 winner: null,
-                score: {player1: 0, player2: 0}
+                score: {player1: 0, player2: 0},
+                winCombo: []
             }
         default:
             return state;

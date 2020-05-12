@@ -17,6 +17,9 @@ function EmojiModal (props) {
     }
 
     const handleEmoji = (emojiUniCode) => {
+        if (emojiUniCode === props.player1Icon || emojiUniCode === props.player2Icon) {
+            return alert('Sorry, this one has been taken! Please choose different icon!')
+        }
         props.handleEmoji(emojiUniCode)
         setEmojiModal(false);
     }
@@ -69,9 +72,14 @@ function EmojiModal (props) {
     );
 }
 
+const mapStateToProps = state => ({
+    player1Icon: state.player1Icon,
+    player2Icon: state.player2Icon
+})
+
 const mapDispatchToProps = dispatch => ({
     handleEmoji: (emojiUniCode) => dispatch(handleEmoji(emojiUniCode))
 })
 
-export default connect(null, mapDispatchToProps)(EmojiModal);
+export default connect(mapStateToProps, mapDispatchToProps)(EmojiModal);
 
